@@ -9,6 +9,11 @@ __pycache__/
 # Distribution / packaging
 .Python
 build/
+bg/
+BgMNIST/
+sub_img
+sub_img.npy
+test/
 develop-eggs/
 dist/
 downloads/

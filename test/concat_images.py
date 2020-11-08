@@ -26,5 +26,5 @@ for i in range(10):
 print(temp_1.shape)
 
 cv2.imshow('img', temp_1)
-cv2.imwrite('../test_images/rgb_multi.jpg', temp_1)
+cv2.imwrite('test_images/rgb_multi.jpg', temp_1)
 cv2.waitKey(0)

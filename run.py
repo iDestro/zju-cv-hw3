@@ -5,6 +5,7 @@ from torch.utils.data import DataLoader
 from dateset import BgMNIST
 from model import Config, Net
 from train import train
+from evaluate import evaluate
 import numpy as np
 import argparse
 
@@ -14,16 +15,12 @@ import argparse
 # args = parser.parse_args()
 
 if __name__ == '__main__':
-
-    train_set = BgMNIST(training=True, target_type='multi', color='gray')
-    test_set = BgMNIST(training=True, target_type='multi')
+    train_set = BgMNIST(training=True, target_type='multi')
+    test_set = BgMNIST(training=False, target_type='multi')
     config = Config()
     train_iter = DataLoader(train_set,
                             shuffle=True,
                             batch_size=config.batch_size)
-
-    test_iter = DataLoader(test_set,
-                           shuffle=True,
-                           batch_size=config.batch_size)
     model = Net()
-    train(model, config, train_iter, test_iter)
+    # train(model, config, train_iter)
+    evaluate(test_set, config)
